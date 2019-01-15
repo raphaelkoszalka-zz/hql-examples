@@ -51,4 +51,5 @@ public class UserController {
                     return ResponseEntity.ok().build();
                 }).orElseThrow(() -> new ResourceNotFoundException("User not found with id " + userId));
     }
+
 }
