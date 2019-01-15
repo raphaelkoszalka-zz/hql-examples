@@ -23,12 +23,18 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public User createQuestion(@Valid @RequestBody User question) {
-        return userRepository.save(question);
+    public User createQuestion(@Valid @RequestBody User user) {
+        return userRepository.save(user);
+    }
+
+    @GetMapping("/users/{userId}")
+    public User getUser(@PathVariable Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id " + userId));
     }
 
     @PutMapping("/users/{userId}")
-    public User updateQuestion(@PathVariable Long userId,@Valid @RequestBody User userRequest) {
+    public User getUser(@PathVariable Long userId,@Valid @RequestBody User userRequest) {
         return userRepository.findById(userId)
                 .map(user -> {
                     user.setName(userRequest.getName());

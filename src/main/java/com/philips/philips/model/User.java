@@ -20,7 +20,7 @@ public class User {
     @Size(min = 3, max = 100)
     private String name;
 
-    @Column(columnDefinition = "text")
+    @Size(min = 3, max = 100)
     private String surname;
 
     public Long getId() {
