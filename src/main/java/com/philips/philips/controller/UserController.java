@@ -18,12 +18,12 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping("/users")
-    public Page<User> getQuestions(Pageable pageable) {
+    public Page<User> getUser(Pageable pageable) {
         return userRepository.findAll(pageable);
     }
 
     @PostMapping("/users")
-    public User createQuestion(@Valid @RequestBody User user) {
+    public User getQuestion(@Valid @RequestBody User user) {
         return userRepository.save(user);
     }
 
